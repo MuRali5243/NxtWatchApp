@@ -1,0 +1,9 @@
+.liked {
+  color: green;
+}
+.dislike {
+  color: yellow;
+}
+.player-cont {
+  width: 100%;
+}

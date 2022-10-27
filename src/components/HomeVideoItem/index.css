@@ -1,0 +1,21 @@
+.video-card-item {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  width: 300px;
+  padding: 25px;
+  border: 2px solid yellowgreen;
+  border-shadow: 0px 4px 16px 4px yellow;
+  color: yellowgreen;
+}
+.thumbnail-img {
+  width: 250px;
+  height: 130px;
+}
+
+.video-p {
+  margin-right: 10px;
+}
+.video-h {
+  font-size: 15px;
+}

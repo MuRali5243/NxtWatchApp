@@ -1,0 +1,64 @@
+.video-container {
+  width: 750px;
+  margin: 25px;
+}
+.responsive-container {
+  width: 100%;
+}
+.heading {
+  font-size: 16px;
+}
+.react-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.p-content {
+  display: flex;
+
+  font-weight: bolder;
+}
+.p-player {
+  margin-right: 10px;
+}
+.react-ul {
+  display: flex;
+  list-style-type: none;
+}
+.react-li {
+  margin-right: 15px;
+  font-weight: bolder;
+}
+.player-bottom-cont {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+.btm-cont {
+  display: flex;
+}
+.btm-cont-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+
+.player-btm-img {
+  width: 65px;
+  height: 65px;
+  margin-right: 40px;
+}
+.like {
+  color: red;
+}
+.like-btn,
+dis-like {
+  background-color: transparent;
+}
+.react-bottom {
+  width: 750px;
+}
+.play-p {
+  margin: 5px;
+  font-size: 15px;
+}

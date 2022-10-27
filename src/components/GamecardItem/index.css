@@ -1,0 +1,22 @@
+.video-card {
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.thumbnail-img1 {
+  width: 200px;
+  height: 300px;
+}
+.view-content {
+  display: flex;
+  width: 100%;
+  margin: 0px;
+}
+.video-p {
+  margin-right: 10px;
+}
+.video-h {
+  font-size: 15px;
+}
