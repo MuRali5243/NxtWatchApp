@@ -12,18 +12,29 @@ import './App.css'
 import ReactContext from './contextFolder/contextFile'
 
 class App extends Component {
-  state = {List: []}
+  state = {List: [], isDarkTheme: true}
 
   onclick = newObj => {
     this.setState(pre => ({List: [...pre.List, newObj]}))
   }
 
+  onclickTheme = () => {
+    this.setState(each => ({isDarkTheme: !each.isDarkTheme}))
+  }
+
   render() {
-    const {List} = this.state
+    const {List, isDarkTheme} = this.state
     console.log(List)
     return (
       <div>
-        <ReactContext.Provider value={{List, onclick: this.onclick}}>
+        <ReactContext.Provider
+          value={{
+            List,
+            isDarkTheme,
+            onclick: this.onclick,
+            onclickTheme: this.onclickTheme,
+          }}
+        >
           <Switch>
             <Route exact path="/login" component={Login} />
             <ProtectedRoute exact path="/trend" component={Trend} />

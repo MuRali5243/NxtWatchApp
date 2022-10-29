@@ -1,5 +1,6 @@
 import Spinner from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import {BsSearch} from 'react-icons/bs'
 import {Component} from 'react'
 import VideoItem from '../HomeVideoItem'
 import HeaderFinal from '../HeaderFinal'
@@ -44,10 +45,11 @@ class Home extends Component {
     if (promise.ok) {
       const res = await promise.json()
       const {total} = res
-      console.log(total)
+      console.log(res)
       const updata = res.videos.map(each => ({
         id: each.id,
         title: each.title,
+        channel: each.channel,
         published: each.published_at,
         thumbnailUrl: each.thumbnail_url,
         viewcount: each.view_count,
@@ -66,7 +68,7 @@ class Home extends Component {
       return (
         <ul className="video-cont">
           {videoList.map(each => (
-            <VideoItem id={each.id} det={each} />
+            <VideoItem key={each.id} det={each} />
           ))}
         </ul>
       )
@@ -76,7 +78,7 @@ class Home extends Component {
         <img className="fail-img" src={imgurlnoResults} alt="no videos" />
 
         <h1>No Search results found</h1>
-        <p>Try different key wordsor remove search filter</p>
+        <p>Try different key words or remove search filter</p>
         <button type="button">Retry</button>
       </div>
     )
@@ -137,8 +139,17 @@ class Home extends Component {
                 GET IT NOW
               </button>
             </div>
-            <div className="input-cont">
-              <input value={searchvalue} onChange={this.onchange} />
+            <div>
+              <div className="input-cont">
+                <input
+                  className="input-search-cont"
+                  value={searchvalue}
+                  onChange={this.onchange}
+                />
+                <div className="bs-cont">
+                  <BsSearch color="dark" size={25} />
+                </div>
+              </div>
             </div>
             <div className="res-cont">{this.switchstate()}</div>
           </div>

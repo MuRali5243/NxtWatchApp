@@ -5,8 +5,7 @@
   width: 100vw;
   height: 100vh;
 }
-.main-top-cont {
-}
+
 .main-body-cont {
   display: flex;
   width: 100%;
@@ -14,6 +13,8 @@
 }
 .body-side-cont {
   width: 160px;
+  height: 100%;
+  background-color: red;
 }
 .body-middle-cont {
   width: 100%;
@@ -35,14 +36,25 @@
   height: 50px;
 }
 .banner-btn {
-  align-self: flex-start;
+  width: 120px;
+  height: 40px;
+  background-color: transparent;
 }
 .input-cont {
-  height: 100px;
-  text-align: center;
+  display: flex;
+  width: 450px;
+  height: 60px;
+  align-items: center;
+  padding-left: 20px;
 
-  width: 50%;
-  padding: 15px;
+  margin: 0px;
+}
+.input-search-cont {
+  width: 350px;
+  height: 40px;
+}
+.bs-cont {
+  height: 41px;
 }
 
 .res-cont {
