@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import {Redirect} from 'react-router-dom'
+
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -6,7 +8,7 @@ const loginimg =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
 class Login extends Component {
-  state = {password: '', username: '', isLogin: false}
+  state = {password: '', username: '', isLogin: false, mssg: '', type: true}
 
   userchange = event => {
     this.setState({username: event.target.value})
@@ -21,32 +23,54 @@ class Login extends Component {
     console.log(username)
     return (
       <>
+        <label htmlFor="Username">USERNAME</label> <br />
         <input
           type="text"
           id="Username"
           value={username}
-          placeholder="username"
+          placeholder="Username"
           onChange={this.userchange}
+          className="pwd-user-input"
         />
       </>
     )
   }
 
+  typeFunct = () => {
+    this.setState(pre => ({type: !pre.type}))
+  }
+
   fetchPassword = () => {
-    const {password} = this.state
+    const {password, type} = this.state
+    const pwd = type ? 'password' : 'text'
+
     return (
       <>
         <label htmlFor="Password">PASSWORD</label> <br />
         <input
-          type="password"
+          type={pwd}
           id="Password"
           value={password}
-          placeholder="password"
+          placeholder="Password"
           onChange={this.pwdchange}
+          className="pwd-user-input"
         />
-        <input className="show-password" type="checkbox" />
-        <label htmlFor="Password">Show password</label> <br />
       </>
+    )
+  }
+
+  ShowPassword = () => {
+    const {password} = this.state
+    return (
+      <div className="show-pwd-cont">
+        <input
+          id="show"
+          className="show-password"
+          onClick={this.typeFunct}
+          type="checkbox"
+        />
+        <label htmlFor="show">Show Password</label>
+      </div>
     )
   }
 
@@ -56,11 +80,11 @@ class Login extends Component {
     console.log(res.jwttoken)
     Cookies.set('jwt_token', jwttoken, {expires: 10})
     const {history} = this.props
-    history.push('/')
+    history.replace('/')
   }
 
-  failedcase = () => {
-    this.setState(pre => ({isLogin: !pre.isLogin}))
+  failedcase = msg => {
+    this.setState(pre => ({isLogin: !pre.isLogin, mssg: msg}))
   }
 
   onsubmit = async event => {
@@ -78,27 +102,32 @@ class Login extends Component {
     if (promise.ok === true) {
       this.submitSuccess(promise)
     } else {
-      this.failedcase()
+      const pro = await promise.json()
+      const msg = pro.error_msg
+      console.log(msg)
+      this.failedcase(msg)
     }
   }
 
   render() {
-    const {isLogin} = this.state
+    const {isLogin, mssg} = this.state
+    const token = Cookies.get('jwt_token')
+    if (token !== undefined) {
+      return <Redirect to="/" />
+    }
+
     return (
       <div className="login-cont">
         <div className="login-content-cont">
           <form onSubmit={this.onsubmit}>
-            <img className="login-img" alt="profile" src={loginimg} />
+            <img className="login-img" alt="website logo" src={loginimg} />
             <div className="user-cont">{this.fetchUsername()}</div>
             <div className="pwd-cont">{this.fetchPassword()}</div>
+            <div className="show-pwd-cont">{this.ShowPassword()}</div>
             <button type="submit" className="login-btn">
               Login
             </button>
-            <div>
-              {isLogin ? (
-                <p className="login-cred">Username and Pasword didn't match</p>
-              ) : null}
-            </div>
+            <div>{isLogin && <p className="login-cred">{mssg}</p>}</div>
           </form>
         </div>
       </div>

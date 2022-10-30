@@ -1,0 +1,27 @@
+.trend-card-item {
+  display: flex;
+  width: 650px;
+
+  margin: 10px;
+  align-items: center;
+
+  padding: 25px;
+
+  border-shadow: 0px 4px 16px 4px yellow;
+  color: yellowgreen;
+}
+.trend-card-content {
+  margin-left: 15px;
+}
+.thumbnail-img {
+  width: 250px;
+  height: 130px;
+}
+
+.trend-p {
+  margin-right: 10px;
+  font-size: 10px;
+}
+.trend-h {
+  font-size: 15px;
+}

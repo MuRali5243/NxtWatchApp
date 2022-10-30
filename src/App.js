@@ -10,6 +10,7 @@ import VideoDet from './components/videoDetails'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 import ReactContext from './contextFolder/contextFile'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   state = {List: [], isDarkTheme: true}
@@ -37,12 +38,17 @@ class App extends Component {
         >
           <Switch>
             <Route exact path="/login" component={Login} />
-            <ProtectedRoute exact path="/trend" component={Trend} />
+            <ProtectedRoute exact path="/trending" component={Trend} />
             <ProtectedRoute exact path="/trail" component={Trail} />
-            <ProtectedRoute exact path="/game" component={Game} />
-            <ProtectedRoute exact path="/details/:id" component={VideoDet} />
+            <ProtectedRoute exact path="/gaming" component={Game} />
+            <ProtectedRoute exact path="/videos/:id" component={VideoDet} />
             <ProtectedRoute exact path="/" component={Home} />
-            <ProtectedRoute exact path="/save" component={SavedVideos} />
+            <ProtectedRoute
+              exact
+              path="/saved-videos"
+              component={SavedVideos}
+            />
+            <Route component={NotFound} />
           </Switch>
         </ReactContext.Provider>
       </div>

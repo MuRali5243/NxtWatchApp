@@ -49,7 +49,10 @@
   margin-right: 40px;
 }
 .like {
-  color: red;
+  color: #2563eb;
+}
+.unlike {
+  color: #64748b;
 }
 .like-btn,
 dis-like {

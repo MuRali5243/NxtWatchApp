@@ -1,10 +1,11 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Cookie from 'js-cookie'
 import Context from '../../contextFolder/contextFile'
+import Logout from '../logoutPopup'
 import './index.css'
 
 const darkimg =
-  'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+  'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
 const profileimg =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png'
@@ -29,21 +30,22 @@ const HeaderTop = props => (
         history.replace('/login')
       }
       const theme = isDarkTheme ? lightTheme : darkTheme
+      const classnameColor = isDarkTheme ? 'darkColor' : 'whiteColor'
       return (
-        <nav className="nav-cont">
-          <img className="header-icon-img" src={darkimg} alt="img" />
+        <nav className={`nav-cont ${classnameColor}`}>
+          <Link to="/">
+            <img className="header-icon-img" src={darkimg} alt="website logo" />
+          </Link>
           <ul className="nav-ul-cont">
-            <button className="theme-btn" onClick={onclickThem}>
+            <button
+              data-testid="theme"
+              className="theme-btn"
+              onClick={onclickThem}
+            >
               <img className="header-left-img1" src={theme} alt="img" />
             </button>
-            <img className="header-left-img2" src={profileimg} alt="img" />
-            <button
-              className="header-btn"
-              type="button"
-              onClick={onClickLogout}
-            >
-              Logout
-            </button>
+            <img className="header-left-img2" src={profileimg} alt="profile" />
+            <Logout data={onClickLogout} />
           </ul>
         </nav>
       )

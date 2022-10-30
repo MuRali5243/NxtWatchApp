@@ -10,7 +10,7 @@ const VideoItem = props => {
   const dateis = formatDistanceToNow(new Date(published))
 
   return (
-    <li className="video-card-item">
+    <li className="trend-card-item">
       <Link to={`/videos/${id}`}>
         <img
           className="thumbnail-img"
@@ -18,15 +18,12 @@ const VideoItem = props => {
           alt="video thumbnail"
         />
       </Link>
-      <div className="card-content-cont">
-        <img className="card-img" src={proImage} alt="channel logo" />
-        <div className="card-content">
-          <p className="video-h">{title}</p>
-          <p className="video-p">{pro}</p>
-          <div className="view-content">
-            <p className="video-p">{`${viewcount} views`}</p>
-            <p className="video-p">{dateis}</p>
-          </div>
+      <div className="trend-card-content">
+        <p className="trend-h">{title}</p>
+        <p className="trend-p">{pro}</p>
+        <div className="view-content">
+          <p className="trend-p">{`${viewcount} views`}</p>
+          <p className="trend-p">{dateis}</p>
         </div>
       </div>
     </li>

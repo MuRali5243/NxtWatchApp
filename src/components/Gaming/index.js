@@ -7,6 +7,9 @@ import HeaderTop from '../HeaderTop'
 
 import './index.css'
 
+const imgurlFail =
+  'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+
 const obj = {
   initial: 'initial',
   loading: 'loading',
@@ -47,20 +50,24 @@ class Game extends Component {
         thumbnailUrl: each.thumbnail_url,
         viewcount: each.view_count,
       }))
-      console.log(updata)
-      console.log('games')
 
       this.setState({status: obj.success, GameList: updata})
+    } else {
+      this.setState({status: obj.failure})
     }
   }
 
   successFunct = () => {
     const {GameList} = this.state
     return (
-      <div className="video-cont">
-        {GameList.map(each => (
-          <GameItem id={each.id} det={each} />
-        ))}
+      <div>
+        <h1>Gaming</h1>
+
+        <ul className="video-cont">
+          {GameList.map(each => (
+            <GameItem key={each.id} det={each} />
+          ))}
+        </ul>
       </div>
     )
   }
@@ -68,6 +75,18 @@ class Game extends Component {
   loading = () => (
     <div>
       <Spinner type="TailSpin" width={40} height={40} />
+    </div>
+  )
+
+  failureFunct = () => (
+    <div className="fail-main-cont">
+      <img className="fail-img" src={imgurlFail} alt="failure view" />
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We are having some trouble to complete your request.</p>
+      <p>Please try again</p>
+      <button type="button" onClick={this.fetchProducts}>
+        Retry
+      </button>
     </div>
   )
 

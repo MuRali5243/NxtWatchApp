@@ -5,35 +5,67 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #231f20;
+}
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .login-content-cont {
-  width: 200px;
-  height: 350px;
-  padding: 20px;
+  width: 400px;
+  height: 500px;
+  padding: 30px;
   box-shadow: 0px 0px 16px 3px red;
+  background-color: black;
 }
 .login-img {
+  width: 80%;
+  height: 45px;
+  margin-bottom: 25px;
+}
+.user-cont,
+.pwd-cont {
   width: 90%;
-  height: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+.show-pwd-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.show-password {
+  margin-right: 0px;
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+}
+
+.show-password-l {
+  background-color: aqua;
 }
 label {
-  margin-bottom: 20px;
-  font-size: 20px;
-  width: 90%;
+  font-size: 25px;
   font-weight: bolder;
+  color: white;
 }
 input {
-  margin-bottom: 15px;
-  width: 90%;
-  font-weight: bolder;
-  border: 1px solid;
+  height: 35px;
 }
 .login-btn {
-  width: 90%;
   background-color: blue;
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #ffffff;
+  height: 45px;
+  font-size: 25px;
 }
 .login-cred {
   color: red;
@@ -42,4 +74,14 @@ input {
 }
 .show-password {
   background-color: brown;
+}
+.pwd-user-input {
+  width: 100%;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  height: 45px;
+  margin-top: 15px;
+  padding-left: 25px;
+  font-size: 18px;
 }

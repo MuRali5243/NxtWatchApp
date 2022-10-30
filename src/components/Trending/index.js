@@ -1,11 +1,14 @@
 import Spinner from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import {Component} from 'react'
-import VideoItem from '../HomeVideoItem'
+import VideoItem from '../trendVideoItem'
 import HeaderFinal from '../HeaderFinal'
 import HeaderTop from '../HeaderTop'
 
 import './index.css'
+
+const imgurlFail =
+  'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
 
 const obj = {
   initial: 'initial',
@@ -47,6 +50,8 @@ class Trend extends Component {
       console.log('trends')
 
       this.setState({status: obj.success, TrendingList: updata})
+    } else {
+      this.setState({status: obj.failure})
     }
   }
 
@@ -54,9 +59,13 @@ class Trend extends Component {
     const {TrendingList} = this.state
     console.log('trending')
     return (
-      <div className="video-cont">
+      <div className="trend-cont">
+        <div>
+          {' '}
+          <h1>Trending</h1>
+        </div>
         {TrendingList.map(each => (
-          <VideoItem id={each.id} det={each} />
+          <VideoItem key={each.id} det={each} />
         ))}
       </div>
     )
@@ -65,6 +74,18 @@ class Trend extends Component {
   loading = () => (
     <div>
       <Spinner type="TailSpin" width={40} height={40} />
+    </div>
+  )
+
+  failureFunct = () => (
+    <div className="fail-main-cont">
+      <img className="fail-img" src={imgurlFail} alt="failure view" />
+      <h1>Oops! Something Went Wrong</h1>
+      <p>We are having some trouble to complete your request.</p>
+      <p>Please try again</p>
+      <button type="button" onClick={this.fetchProducts}>
+        Retry
+      </button>
     </div>
   )
 

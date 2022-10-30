@@ -1,0 +1,4 @@
+.video-cont {
+  display: flex;
+  flex-wrap: wrap;
+}

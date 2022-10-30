@@ -1,5 +1,5 @@
 import ReactContext from '../../contextFolder/contextFile'
-import HomeVideoItem from '../HomeVideoItem'
+import VideoItem from '../SavedVideoItems'
 import HeaderFinal from '../HeaderFinal'
 import HeaderTop from '../HeaderTop'
 
@@ -24,11 +24,11 @@ const SavedVideos = () => (
               <div className="body-side-cont">
                 <HeaderFinal />
               </div>
-              <div className="body-middle-cont">
+              <ul className="body-middle-cont">
                 {List.map(each => (
-                  <HomeVideoItem det={each} key={each.id} />
+                  <VideoItem det={each} key={each.id} />
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         )
@@ -45,9 +45,13 @@ const SavedVideos = () => (
             </div>
             <div className="body-middle-cont">
               <div className="fail-main-cont">
-                <img className="fail-img" src={imgurlNoSaved} />
-                <h1>No saved videos found </h1>
-                <p>You can save your videos while watching them.</p>
+                <img
+                  className="fail-img"
+                  src={imgurlNoSaved}
+                  alt="no saved videos"
+                />
+                <h1>No saved videos found</h1>
+                <p>Save your videos by clicking a button</p>
               </div>
             </div>
           </div>

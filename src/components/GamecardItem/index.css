@@ -14,9 +14,14 @@
   width: 100%;
   margin: 0px;
 }
-.video-p {
+.game-p {
   margin-right: 10px;
+  font-size: 12px;
 }
-.video-h {
+.game-h {
   font-size: 15px;
+}
+.game-card-content {
+  display: flex;
+  align-items: center;
 }

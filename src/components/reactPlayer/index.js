@@ -28,14 +28,26 @@ class VideoPlayer extends Component {
           }
 
           const liked = () => {
-            console.log('likedd')
-            this.setState(pre => ({isLiked: !pre.isLiked}))
+            if (isUnLiked === false) {
+              this.setState(pre => ({isLiked: !pre.isLiked}))
+            } else {
+              this.setState(pre => ({
+                isLiked: !pre.isLiked,
+                isUnLiked: !pre.isUnLiked,
+              }))
+            }
           }
           const Liked = isLiked ? 'like' : 'unlike'
 
           const unliked = () => {
-            console.log('likedd')
-            this.setState(pre => ({isUnLiked: !pre.isUnLiked}))
+            if (isLiked === false) {
+              this.setState(pre => ({isUnLiked: !pre.isUnLiked}))
+            } else {
+              this.setState(pre => ({
+                isLiked: !pre.isLiked,
+                isUnLiked: !pre.isUnLiked,
+              }))
+            }
           }
           const unLiked = isUnLiked ? 'like' : 'unlike'
           console.log(Liked)
@@ -59,7 +71,7 @@ class VideoPlayer extends Component {
                   height="320px"
                 />
               </div>
-              <h1 className="heading">{title}</h1>
+              <p className="heading">{title}</p>
 
               <div className="react-bottom">
                 <div className="p-content">
@@ -87,7 +99,7 @@ class VideoPlayer extends Component {
                   </li>
                   <li className="react-li">
                     <button onClick={onclickk} type="button">
-                      save
+                      Save
                     </button>
                   </li>
                 </ul>
@@ -95,7 +107,11 @@ class VideoPlayer extends Component {
               <hr />
               <div className="player-bottom-cont">
                 <div className="btm-cont">
-                  <img className="player-btm-img" src={Url} alt="img" />
+                  <img
+                    className="player-btm-img"
+                    src={Url}
+                    alt="channel logo"
+                  />
                   <div className="btm-cont-content">
                     <p className="play-p">{name}</p>
                     <p className="play-p">{subscrib}</p>

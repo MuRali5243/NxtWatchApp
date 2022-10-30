@@ -7,11 +7,18 @@ const GameItem = props => {
 
   return (
     <div className="video-card">
-      <Link to={`/details/${id}`}>
-        <img className="thumbnail-img1" src={thumbnailUrl} alt="img" />
-        <h1 className="video-h">{title}</h1>
+      <Link to={`/videos/${id}`}>
+        <img
+          className="thumbnail-img1"
+          src={thumbnailUrl}
+          alt="video thumbnai"
+        />
+        <p className="game-h">{title}</p>
 
-        <p className="video-p">{viewcount}</p>
+        <div className="game-card-content">
+          <p className="game-p">{viewcount}</p>{' '}
+          <p className="game-p">Watching World Wide</p>
+        </div>
       </Link>
     </div>
   )

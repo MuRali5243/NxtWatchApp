@@ -12,7 +12,7 @@
 
   justify-content: space-between;
   height: 60px;
-  background-color: #424242;
+
   width: 100vw;
 }
 .header-icon-img {
@@ -35,4 +35,12 @@
 .theme-btn {
   background-color: transparent;
   border: none;
+}
+.darkColor {
+  color: white;
+  background-color: #424242;
+}
+.whiteColor {
+  color: white;
+  background-color: dark;
 }
